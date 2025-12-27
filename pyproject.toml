@@ -1,27 +1,26 @@
-[project]
+[tool.poetry]
 name = "qa-guru-belevtseva-hw-18"
 version = "0.1.0"
 description = ""
-authors = [
-    {name = "Darya Belevtseva",email = "dascha067@gmail.com"}
-]
+authors = ["Darya Belevtseva <dascha067@gmail.com>"]
 readme = "README.md"
-requires-python = ">=3.13"
-dependencies = [
-    "selene (>=1.0.2,<2.0.0)",
-    "selenium (>=4.39.0,<5.0.0)",
-    "allure-pytest (==2.9.45)",
-    "allure-python-commons (==2.9.45)",
-    "requests (>=2.32.5,<3.0.0)",
-    "webdriver-manager (>=4.0.2,<5.0.0)"
-]
 
+[tool.poetry.dependencies]
+python = ">=3.13"
+requests = ">=2.32.5,<3.0.0"
+selenium = ">=4.39.0,<5.0.0"
+selene = ">=1.0.2,<2.0.0"
+allure-pytest = "2.9.45"
+allure-python-commons = "2.9.45"
+webdriver-manager = ">=4.0.2,<5.0.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=8.4.2,<9.0.0"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
-
-[dependency-groups]
-dev = [
-    "pytest (>=9.0.2,<10.0.0)"
-]
